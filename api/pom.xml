@@ -12,6 +12,17 @@
     <artifactId>api</artifactId>
 
     <dependencies>
+        <!-- modules -->
+        <dependency>
+            <groupId>skiprope</groupId>
+            <artifactId>entities</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>skiprope</groupId>
+            <artifactId>services</artifactId>
+        </dependency>
+
+        <!-- kumuluzee -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
@@ -34,12 +45,6 @@
         </dependency>
 
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.kumuluz.ee.openapi</groupId>
             <artifactId>kumuluzee-openapi</artifactId>
         </dependency>
@@ -48,11 +53,13 @@
             <groupId>com.kumuluz.ee.openapi</groupId>
             <artifactId>kumuluzee-openapi-ui</artifactId>
         </dependency>
+
+        <!-- other -->
         <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

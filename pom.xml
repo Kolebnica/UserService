@@ -16,13 +16,19 @@
     </modules>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        
         <kumuluzee-cors.version>1.0.3</kumuluzee-cors.version>
         <kumuluzee.version>2.5.2</kumuluzee.version>
-        <kumuluzee-openapi.version>1.0.0-SNAPSHOT</kumuluzee-openapi.version>
+        <kumuluzee-openapi.version>1.0.0</kumuluzee-openapi.version>
+        <postgresql.version>42.2.5</postgresql.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
             <dependency>
                 <groupId>com.kumuluz.ee</groupId>
                 <artifactId>kumuluzee-bom</artifactId>
@@ -31,13 +37,24 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- modules-->
+            <!-- modules -->
             <dependency>
                 <groupId>skiprope</groupId>
                 <artifactId>api</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>skiprope</groupId>
+                <artifactId>entities</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>skiprope</groupId>
+                <artifactId>services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
+            <!-- kumuluzee -->
             <dependency>
                 <groupId>com.kumuluz.ee.openapi</groupId>
                 <artifactId>kumuluzee-openapi</artifactId>
@@ -53,6 +70,14 @@
                 <artifactId>kumuluzee-rest-core</artifactId>
                 <version>${kumuluzee-rest.version}</version>
             </dependency>
+
+            <!-- other -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
