@@ -11,11 +11,17 @@ import entities.User;
 @ApplicationScoped
 public class UserBean {
 
-    @PersistenceContext(unitName = "sis-jpa")
+    @PersistenceContext(unitName = "sr-jpa")
     private EntityManager em;
 
     @Transactional
     public User setUser(User user) {
-        return null;
+        user = em.merge(user);
+        return user;
+    }
+
+    @Transactional
+    public User getUser(int id) {
+        return em.find(User.class, id);
     }
 }

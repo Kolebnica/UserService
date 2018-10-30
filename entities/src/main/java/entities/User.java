@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import java.io.Serializable;
 
-@Entity(name = "user")
+@Entity(name = "users")
 public class User implements Serializable {
 
     @Id
