@@ -3,6 +3,12 @@ Service for user registration, login and account management.
 
 [![Build Status](https://travis-ci.org/Kolebnica/UserService.svg?branch=master)](https://travis-ci.org/Kolebnica/UserService)
 
+## REST API
+
+Default port: 8081
+
+Accessing OpenAPI: [localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json](localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json)
+
 ## Making & running a Docker image
 
 1. Build Docker image with `docker build -t skiprope/userservice . `

@@ -1,12 +1,10 @@
 package beans.crud;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import entities.User;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.*;
+import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class UserBean {
@@ -15,13 +13,47 @@ public class UserBean {
     private EntityManager em;
 
     @Transactional
-    public User setUser(User user) {
-        user = em.merge(user);
-        return user;
-    }
-
-    @Transactional
     public User getUser(int id) {
         return em.find(User.class, id);
     }
+
+    /**
+     * Retrieves user by username
+     * @param username
+     * @return User object if exists, or null
+     */
+    public User getUserByUsername(String username) {
+        TypedQuery<User> q = em.createNamedQuery("User.getByUsername", User.class);
+        q.setParameter("username", username);
+
+        User u = null;
+        try {
+            u = q.getSingleResult();
+        } catch (NoResultException | NonUniqueResultException ignored) { }
+
+        return u;
+    }
+
+    public boolean existsUser(int id) {
+        return getUser(id) != null;
+    }
+
+    @Transactional
+    public User insertUser(User u) {
+        em.persist(u);
+        em.flush();
+        return u;
+    }
+
+    @Transactional
+    public User updateUser(User u) {
+        em.merge(u);
+        em.flush();
+        return u;
+    }
+
+    public void deleteUser(int id) {
+        // TODO
+    }
+
 }
