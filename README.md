@@ -5,9 +5,9 @@ Service for user registration, login and account management.
 
 ## REST API
 
-Default port: 8081
+Default port: 8080
 
-Accessing OpenAPI: [localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json](localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json)
+Accessing OpenAPI: [localhost:8080/api-specs/ui/?url=http://localhost:8080/api-specs/api/openapi.json](localhost:8080/api-specs/ui/?url=http://localhost:8080/api-specs/api/openapi.json)
 
 ## Making & running a Docker image
 
