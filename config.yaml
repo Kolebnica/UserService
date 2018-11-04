@@ -1,0 +1,22 @@
+kumuluzee:
+  name: userservice
+  version: 1.0.0
+  env:
+    name: dev
+  server:
+    http:
+      port: 8080
+  datasources:
+  - jndi-name: jdbc/userservice
+    connection-url: jdbc:postgresql://192.168.99.100:5432/postgres
+    username: postgres
+    password: postgres
+    max-pool-size: 10
+
+  discovery:
+      consul:
+        agent: http://192.168.99.100:8500
+
+  config:
+    consul:
+      agent: http://192.168.99.100:8500
