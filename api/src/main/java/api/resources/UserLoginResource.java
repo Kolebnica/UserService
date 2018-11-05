@@ -1,6 +1,7 @@
 package api.resources;
 
 import beans.crud.UserBean;
+import beans.external.ProfileServiceBean;
 import entities.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -26,6 +27,10 @@ public class UserLoginResource {
     @Inject
     UserBean userBean;
 
+    @Inject
+    ProfileServiceBean profileServiceBean;
+
+
     @Operation(
             summary = "User login",
             responses = {
@@ -45,7 +50,7 @@ public class UserLoginResource {
         User u = userBean.getUserByUsername(username);
         if(u != null) {
             if(u.getPassword().equals(password)) {
-                return Response.ok().build();
+                return Response.ok(profileServiceBean.getUserProfile()).build();
             }
         }
 
