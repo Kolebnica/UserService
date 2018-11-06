@@ -15,3 +15,12 @@ Accessing OpenAPI: [localhost:8080/api-specs/ui/?url=http://localhost:8080/api-s
 2. Run Docker image `docker run --name skiprope-userservice --publish 8080:8080 --detach skiprope/userservice`
 3. Stop & remove docker container `docker stop skiprope-userservice && docker rm skiprope-userservice`
 4. Remove docker image `docker rmi skiprope/userservice`
+
+## Using Docker compose
+
+Make sure you are in the same folder as `docker-compose.yaml` file.
+
+1. Run docker compose configuration: `docker-compose up --build -d` (remove `-d` flag to see logs for each container)
+2. To stop and remove all containers/network: `docker-compose down`
+
+If you have problems running `docker-compose up` command, check for any images related to this docker-compose and remove them by hand with `docker rmi`.
