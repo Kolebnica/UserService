@@ -1,3 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: userservice
+spec:
+  selector:
+    app: userservice
+  ports:
+  - protocol: "TCP"
+    port: 8080
+    targetPort: 8080
+  type: NodePort
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,7 +18,7 @@ metadata:
   labels:
     app: userservice
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: userservice
@@ -20,8 +33,14 @@ spec:
         ports:
         - containerPort: 8080
         env:
-            - name: KUMULUZEE_DISCOVERY_CONSUL_AGENT
-              value: http://consul:8500  
-            - name: KUMULUZEE_CONFIG_CONSUL_AGENT
-              value: http://consul:8500 
+          - name: KUMULUZEE_DISCOVERY_CONSUL_AGENT
+            value: http://consul:8500  
+          - name: KUMULUZEE_CONFIG_CONSUL_AGENT
+            value: http://consul:8500
+          - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+            value: jdbc:postgresql://manny.db.elephantsql.com:5432/fckauhpq
+          - name: KUMULUZEE_DATASOURCES0_USERNAME
+            value: fckauhpq
+          - name: KUMULUZEE_DATASOURCES0_PASSWORD
+            value: hH88MKljIGnHZ3jQYbQLt-C2qGzh-Qbx
         
