@@ -6,6 +6,8 @@
         <class>entities.User</class>
 
         <properties>
+            <property name="eclipselink.connection-pool.default.initial" value="1" />
+            <property name="eclipselink.connection-pool.node2.max" value="2"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
             <property name="javax.persistence.sql-load-script-source" value="init-db.sql"/>
