@@ -37,7 +37,7 @@ public class MetadataResource {
     public Response registerUser() {
 
         Metadata metadata = new Metadata();
-        metadata.setClani(new String[]{"bb3172","mc0239"});
+        metadata.setClani(new String[]{"bb3172","mc0239"}); 
         metadata.setOpisProjekta("Projekt implementira aplikacijo za streamanje glasbe.");
         metadata.setMikrostoritve(new String[]{"http://159.122.179.108:30000","http://159.122.179.108:30001"});
         metadata.setGithub(new String[]{"https://github.com/Kolebnica/UserService",
