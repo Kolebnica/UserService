@@ -39,7 +39,7 @@ public class MetadataResource {
         Metadata metadata = new Metadata();
         metadata.setClani(new String[]{"bb3172","mc0239"});
         metadata.setOpisProjekta("Projekt implementira aplikacijo za streamanje glasbe.");
-        metadata.setMikrostoritve(new String[]{"http://159.122.179.108:30000/api/users","http://159.122.179.108:30001"});
+        metadata.setMikrostoritve(new String[]{"http://159.122.179.108:30000/api/users","http://159.122.179.108:30001/api/profiles"});
         metadata.setGithub(new String[]{"https://github.com/Kolebnica/UserService",
                 "https://github.com/Kolebnica/ProfileService"});
         metadata.setTravis(new String[]{"https://travis-ci.org/Kolebnica/UserService",
