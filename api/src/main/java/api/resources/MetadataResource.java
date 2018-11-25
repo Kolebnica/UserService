@@ -26,14 +26,6 @@ import java.util.Optional;
 @Tags(value = @Tag(name = "authentication"))
 public class MetadataResource {
 
-    @Inject
-    @DiscoverService(value = "profileservice", version = "1.0.x", environment = "dev")
-    private Optional<WebTarget> profileServiceWebTarget;
-
-    @Inject
-    @DiscoverService(value = "userservice", version = "1.0.x", environment = "dev")
-    private Optional<WebTarget> userServiceWebTarget;
-
     @Operation(
             summary = "Get metadata for milestone",
             responses = {
@@ -43,21 +35,11 @@ public class MetadataResource {
     )
     @GET
     public Response registerUser() {
-        List<String> microservices = new ArrayList<String>();
-        if(profileServiceWebTarget.isPresent()) {
-            WebTarget t = profileServiceWebTarget.get();
-            microservices.add(t.getUri().toString());
-        }
-
-        if(userServiceWebTarget.isPresent()) {
-            WebTarget t = userServiceWebTarget.get();
-            microservices.add(t.getUri().toString());
-        }
 
         Metadata metadata = new Metadata();
         metadata.setClani(new String[]{"bb3172","mc0239"});
         metadata.setOpisProjekta("Projekt implementira aplikacijo za streamanje glasbe.");
-        metadata.setMikrostoritve(microservices.toArray(new String[0]));
+        metadata.setMikrostoritve(new String[]{"http://159.122.179.108:30000","http://159.122.179.108:30001"});
         metadata.setGithub(new String[]{"https://github.com/Kolebnica/UserService",
                 "https://github.com/Kolebnica/Frontend",
                 "https://github.com/Kolebnica/ProfileService",
