@@ -58,5 +58,4 @@ public class UserLoginResource {
                 .entity(new ResponseError(401, "This combination of username and password doesn't exist."))
                 .build();
     }
-
 }

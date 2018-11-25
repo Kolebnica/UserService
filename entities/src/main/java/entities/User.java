@@ -7,7 +7,8 @@ import java.io.Serializable;
 
 @Entity(name = "users")
 @NamedQueries(value = {
-    @NamedQuery(name = "User.getByUsername", query = "SELECT u FROM users u WHERE u.username = :username")
+    @NamedQuery(name = "User.getByUsername", query = "SELECT u FROM users u WHERE u.username = :username"),
+    @NamedQuery(name = "User.getUsers", query = "SELECT u FROM users u")
 })
 public class User implements Serializable {
 

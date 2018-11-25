@@ -5,6 +5,7 @@ import entities.User;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @ApplicationScoped
 public class UserBean {
@@ -32,6 +33,12 @@ public class UserBean {
         } catch (NoResultException | NonUniqueResultException ignored) { }
 
         return u;
+    }
+
+
+    public List<User> getAllUsers(){
+        TypedQuery<User> q = em.createNamedQuery("User.getUsers", User.class);
+        return q.getResultList();
     }
 
     public boolean existsUser(int id) {
