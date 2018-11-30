@@ -25,6 +25,7 @@
         <kumuluzee-openapi.version>1.0.0</kumuluzee-openapi.version>
         <kumuluzee-rest.version>1.1.0</kumuluzee-rest.version>
         <kumuluzee-discovery.version>1.1.0</kumuluzee-discovery.version>
+        <kumuluzee-health.version>1.0.1</kumuluzee-health.version>
 
         <postgresql.version>42.2.5</postgresql.version>
     </properties>
@@ -77,6 +78,12 @@
                 <groupId>com.kumuluz.ee.discovery</groupId>
                 <artifactId>kumuluzee-discovery-consul</artifactId>
                 <version>${kumuluzee-discovery.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee.health</groupId>
+                <artifactId>kumuluzee-health</artifactId>
+                <version>${kumuluzee-health.version}</version>
             </dependency>
 
             <!-- other -->

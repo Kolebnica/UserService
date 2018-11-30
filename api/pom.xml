@@ -59,6 +59,11 @@
             <artifactId>kumuluzee-discovery-consul</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.kumuluz.ee.health</groupId>
+            <artifactId>kumuluzee-health</artifactId>
+        </dependency>
+
         <!-- other -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
