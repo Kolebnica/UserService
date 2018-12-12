@@ -74,11 +74,6 @@
             <artifactId>kumuluzee-logs-log4j2</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-cdi-weld</artifactId>
-        </dependency>
-
         <!-- other -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

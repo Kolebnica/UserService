@@ -1,9 +1,12 @@
 package api.resources;
 
+import com.kumuluz.ee.logs.cdi.Log;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import pojo.Metadata;
 
@@ -20,9 +23,10 @@ import javax.ws.rs.core.Response;
 @Path("metadata")
 @ApplicationScoped
 @Tags(value = @Tag(name = "authentication"))
+@Log
 public class MetadataResource {
 
-    //private static final Logger LOG = LogManager.getLogger(MetadataResource.class.getName());
+    private static final Logger LOG = LogManager.getLogger(MetadataResource.class.getName());
 
     @Operation(
             summary = "Get metadata for milestone",
@@ -35,7 +39,7 @@ public class MetadataResource {
     @Counted(name = "metadataCall", monotonic = true)
     public Response getMetadata() {
 
-            //LOG.info("New metadata call :).");
+        LOG.info("New metadata call :).");
 
         Metadata metadata = new Metadata();
         metadata.setClani(new String[]{"bb3172","mc0239"});
