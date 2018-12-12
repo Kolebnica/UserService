@@ -36,6 +36,11 @@
             <artifactId>kumuluzee-health</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.kumuluz.ee.metrics</groupId>
+            <artifactId>kumuluzee-metrics-core</artifactId>
+        </dependency>
+
         <!-- other -->
         <dependency>
             <groupId>commons-codec</groupId>

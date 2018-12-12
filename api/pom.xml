@@ -64,6 +64,21 @@
             <artifactId>kumuluzee-health</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.kumuluz.ee.metrics</groupId>
+            <artifactId>kumuluzee-metrics-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-cdi-weld</artifactId>
+        </dependency>
+
         <!-- other -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

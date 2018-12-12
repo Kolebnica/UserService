@@ -1,8 +1,12 @@
 package beans.crud;
 
 import entities.User;
+import org.eclipse.microprofile.metrics.Counter;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metric;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -12,6 +16,10 @@ public class UserBean {
 
     @PersistenceContext(unitName = "sr-jpa")
     private EntityManager em;
+
+    @Inject
+    @Metric(name="userDbCall")
+    private Counter counter;
 
     @Transactional
     public User getUser(int id) {
@@ -23,7 +31,9 @@ public class UserBean {
      * @param username
      * @return User object if exists, or null
      */
+    //@Counted(name = "gerUsersFromDb", monotonic = true)
     public User getUserByUsername(String username) {
+        counter.inc();
         TypedQuery<User> q = em.createNamedQuery("User.getByUsername", User.class);
         q.setParameter("username", username);
 
@@ -35,8 +45,9 @@ public class UserBean {
         return u;
     }
 
-
+    //@Counted(name = "gerUsersFromDb", monotonic = true)
     public List<User> getAllUsers(){
+        counter.inc();
         TypedQuery<User> q = em.createNamedQuery("User.getUsers", User.class);
         return q.getResultList();
     }
@@ -45,8 +56,10 @@ public class UserBean {
         return getUser(id) != null;
     }
 
+    //@Counted(name = "insertUsersInDb", monotonic = true)
     @Transactional
     public User insertUser(User u) {
+        counter.inc();
         em.persist(u);
         em.flush();
         return u;

@@ -1,23 +1,19 @@
 package api.resources;
 
-
-import com.kumuluz.ee.discovery.annotations.DiscoverService;
-import entities.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import pojo.Metadata;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +21,8 @@ import java.util.Optional;
 @ApplicationScoped
 @Tags(value = @Tag(name = "authentication"))
 public class MetadataResource {
+
+    //private static final Logger LOG = LogManager.getLogger(MetadataResource.class.getName());
 
     @Operation(
             summary = "Get metadata for milestone",
@@ -34,7 +32,10 @@ public class MetadataResource {
             }
     )
     @GET
-    public Response registerUser() {
+    @Counted(name = "metadataCall", monotonic = true)
+    public Response getMetadata() {
+
+            //LOG.info("New metadata call :).");
 
         Metadata metadata = new Metadata();
         metadata.setClani(new String[]{"bb3172","mc0239"});
