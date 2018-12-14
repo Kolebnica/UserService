@@ -2,6 +2,7 @@ package api.resources;
 
 import beans.crud.UserBean;
 import beans.external.ProfileServiceBean;
+import com.kumuluz.ee.logs.cdi.Log;
 import entities.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -22,6 +23,7 @@ import javax.ws.rs.core.Response;
 @Path("login")
 @ApplicationScoped
 @Tags(value = @Tag(name = "authentication"))
+@Log
 public class UserLoginResource {
 
     @Inject

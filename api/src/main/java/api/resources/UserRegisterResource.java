@@ -2,6 +2,7 @@ package api.resources;
 
 
 import beans.crud.UserBean;
+import com.kumuluz.ee.logs.cdi.Log;
 import entities.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -26,6 +27,7 @@ import javax.ws.rs.core.Response;
 @Path("register")
 @ApplicationScoped
 @Tags(value = @Tag(name = "authentication"))
+@Log
 public class UserRegisterResource{
 
     @Inject

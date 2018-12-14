@@ -2,7 +2,6 @@ package beans.crud;
 
 import entities.User;
 import org.eclipse.microprofile.metrics.Counter;
-import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Metric;
 
 import javax.enterprise.context.ApplicationScoped;

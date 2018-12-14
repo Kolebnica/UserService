@@ -2,18 +2,18 @@ package api.resources;
 
 
 import beans.crud.UserBean;
-import entities.User;
+import com.kumuluz.ee.logs.cdi.Log;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
-import pojo.ResponseError;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -22,6 +22,7 @@ import javax.ws.rs.core.Response;
 @Path("users")
 @ApplicationScoped
 @Tags(value = @Tag(name = "authentication"))
+@Log
 public class UserResource {
 
     @Inject

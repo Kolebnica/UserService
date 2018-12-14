@@ -22,7 +22,7 @@ public class LogContextInterceptor {
 
         ConfigurationUtil configurationUtil = ConfigurationUtil.getInstance();
 
-        HashMap settings = new HashMap();
+        HashMap<String, String> settings = new HashMap<>();
 
         settings.put("environmentType", configurationUtil.get("kumuluzee.env.name").orElse(null));
         settings.put("applicationName", configurationUtil.get("kumuluzee.name").orElse(null));
@@ -36,4 +36,5 @@ public class LogContextInterceptor {
             return result;
         }
     }
+
 }
