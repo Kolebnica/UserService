@@ -52,7 +52,7 @@ public class UserLoginResource {
         User u = userBean.getUserByUsername(username);
         if(u != null) {
             if(u.getPassword().equals(password)) {
-                return Response.ok(profileServiceBean.getUserProfile()).build();
+                return Response.ok(u).build();
             }
         }
 
