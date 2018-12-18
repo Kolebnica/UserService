@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("metadata")
 @ApplicationScoped
-@Tags(value = @Tag(name = "authentication"))
+@Tags(value = @Tag(name = "metadata"))
 @Log
 public class MetadataResource {
 
