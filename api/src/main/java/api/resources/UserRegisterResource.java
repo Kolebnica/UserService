@@ -2,6 +2,7 @@ package api.resources;
 
 
 import beans.crud.UserBean;
+import beans.external.ProfileServiceBean;
 import com.kumuluz.ee.logs.cdi.Log;
 import entities.User;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,6 +34,9 @@ public class UserRegisterResource{
     @Inject
     UserBean userBean;
 
+    @Inject
+    ProfileServiceBean profileServiceBean;
+
     @Operation(
             summary = "User registration",
             responses = {
@@ -51,6 +55,8 @@ public class UserRegisterResource{
                     .build();
         } else {
             user = userBean.insertUser(user);
+            // TODO: what if profile creation fails?
+            boolean success = profileServiceBean.createUserProfile(user.getId());
             return Response.ok(user).build();
         }
     }

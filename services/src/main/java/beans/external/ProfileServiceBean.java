@@ -7,6 +7,7 @@ import org.eclipse.microprofile.metrics.annotation.Counted;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -17,16 +18,24 @@ public class ProfileServiceBean {
     private Optional<WebTarget> profileServiceWebTarget;
 
     @Counted(name = "callProfileService", monotonic = true)
-    public User getUserProfile() {
+    public User getUserProfile(int profileId) {
         if(profileServiceWebTarget.isPresent()) {
             WebTarget t = profileServiceWebTarget.get();
+            // TODO
+            // Profile p = t.path("api/userprofile/" + profileId).request().get(Profile.class);
 
-            User u = t.path("api/userprofile/1").request().get(User.class);
-
-            return u;
+            return null;
         }
-
         // no service found
         return null;
+    }
+
+    public boolean createUserProfile(int profileId) {
+        if (profileServiceWebTarget.isPresent()) {
+            WebTarget t = profileServiceWebTarget.get();
+            Response resp = t.path("api/profiles/" + profileId).request().post(null);
+            return (resp.getStatus() == 201);
+        }
+        return false;
     }
 }
