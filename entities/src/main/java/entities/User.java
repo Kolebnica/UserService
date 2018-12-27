@@ -1,5 +1,7 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
@@ -14,8 +16,6 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @XmlID
-    @XmlElement
     private int id;
 
     private String name;
@@ -25,6 +25,7 @@ public class User implements Serializable {
     @Column(unique = true)
     private String username;
 
+    @JsonIgnore
     private String password;
 
     private String email;
