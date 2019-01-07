@@ -48,6 +48,10 @@ spec:
             value: skiprope
           - name: SKIPROPECONFIGS_HEALTH_CONSULURL
             value: http://consul:8500/v1/status/leader
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://userservice:8080
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: skiprope
         livenessProbe:
           httpGet:
             path: /health

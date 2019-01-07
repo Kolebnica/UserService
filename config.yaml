@@ -6,6 +6,7 @@ kumuluzee:
   server:
     http:
       port: 8080
+    base-url: http://localhost:8080
   datasources:
   - jndi-name: jdbc/userservice
     connection-url: jdbc:postgresql://localhost:5432/postgres
@@ -23,20 +24,20 @@ kumuluzee:
   metrics:
     web-instrumentation:
       - name: metrics-endpoint
-        url-pattern: /api/metadata/*
+        url-pattern: /api/*
         status-codes: "200, 500"
     servlet:
       enabled: true
 
   discovery:
-      consul:
-        agent: http://localhost:8500
+      etcd:
+        hosts: http://localhost:2379
 
   config:
-    consul:
-      agent: http://localhost:8500
+    etcd:
+      hosts: http://localhost:2379
 
 # Settings and configurations
 skiprope-configs:
   health:
-    consul-url: http://localhost:8500/v1/status/leader
+    etcd-url: http://localhost:2379/health
